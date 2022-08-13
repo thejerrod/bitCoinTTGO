@@ -24,7 +24,8 @@ int timeZone=1; //edit
 
 
 String payload="";
-const String endpoint ="https://api.cryptonator.com/api/ticker/btc-usd";
+//const String endpoint ="https://api.cryptonator.com/api/ticker/btc-usd"; #change this to use coinbase API
+const String endpoint ="https://api.pro.coinbase.com/products/BTC-USD/stats";
 
 double current=0;
 double last=0;
@@ -132,7 +133,8 @@ void getData()
    payload.toCharArray(inp,payload.length());
    deserializeJson(doc,inp);
 
-   String v=doc["ticker"]["price"];
+   //String v=doc["ticker"]["price"]; #changing this to use coinbase API json response
+    String v=doc ["last"];
    String c=doc["ticker"]["change"];
    String t=doc["timestamp"];
    Serial.print(t);
